@@ -43,6 +43,9 @@ jobs:
     - name: Terraform Format
       id: fmt
       run: terraform fmt -check
+      env:
+        GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        TF_ACTION_WORKING_DIR: .
       continue-on-error: true
 
     - name: Terraform Validate
